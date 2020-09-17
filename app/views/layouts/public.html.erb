@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
+
+  <body class="bg-dark public-layout">
+    <main class="container">
+      <%= yield %>
+    </main>
+
+    <%= render 'layouts/footer' %>
+    <%= render 'layouts/flash' %>
+  </body>
+</html>

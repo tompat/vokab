@@ -1,0 +1,112 @@
+#page-show-item {
+  textarea {
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 2px;
+    padding: 24px;
+    height: 78px;
+  }
+
+  .answer-result {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+  }
+
+  .text-content, textarea {
+    font-size: 20px;
+  }
+
+  .card {
+    margin: 0px;
+  }
+
+  #item-actions-dropdown {
+    padding-top: 1rem;
+
+    &, li, li:hover {
+      background: $dark-bg-color !important;
+    }
+  }
+
+  #action-btns {
+    margin-bottom: 1rem;
+    text-align: right;
+
+    a {
+      margin-top: 1rem;
+    }
+  }
+
+  .progress-bar {
+    .steps-container {
+      display: flex;
+      justify-content: space-around;
+
+      .step {
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        line-height: 30px;
+        float: left;
+        background: white;
+        border-right: solid 1px #aaa;
+        font-weight: bold;
+
+        @media #{$small-and-down} {
+          width: 25px;
+          height: 25px;
+          line-height: 25px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+#page-new-item {
+  .textarea-top-container {
+    margin: 2rem 0;
+
+    .textarea-container {
+      background: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  }
+
+  #dictionnaries-btns {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    background: $dark-bg-color;
+    z-index: 1000;
+
+    button {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+#page-landing {
+  padding-top: 3rem;
+
+  .levels-container {
+    margin-top: 4rem;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+
+    span {
+      margin-left: 1rem;
+      font-weight: normal;
+      font-size: 0.9rem;
+
+      &.green {
+        float: right;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#none" data-target="slide-menu" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+
+    <a href="/" class="brand-logo center">VOKAB</a>
+
+    <% if current_user.is_me? %>
+      <div id="not_known_counter" class="custom-badge red right">
+        <%= current_user.counter %>
+      </div>
+    <% end %>
+  </div>
+</nav>

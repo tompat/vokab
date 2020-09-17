@@ -1,0 +1,23 @@
+<div id="search-modal" class="modal">
+  <div class="modal-content">
+    <%= form_with url: search_items_path, method: :get, local: true do |form| %>
+      <div class="input-field">
+        <i class="material-icons prefix">search</i>
+        <%= form.text_field :query %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $('#search-modal').modal({
+      onOpenEnd: function() {
+        var side_menu = M.Sidenav.getInstance($('.sidenav'));
+        side_menu.close();
+
+        $("#search-modal form input#query").focus();
+      }
+    });
+  });
+</script>

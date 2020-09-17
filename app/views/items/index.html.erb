@@ -1,0 +1,21 @@
+<% @items.each do |item| %>
+  <div class="row">
+    <div class="col s12">
+      <div class="card hoverable">
+        <%= link_to item_path(item, no_quiz: true) do %>
+          <div class="card-content black-text">
+            <p class="flow-text">
+              <%== item.text_1.blank? ? "&nbsp;" : item.text_1 %>
+            </p>
+
+            <hr/>
+
+            <p class="flow-text">
+              <%== item.text_2.blank? ? "&nbsp;" : item.text_2 %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

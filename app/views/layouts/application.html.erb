@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
+
+  <body class="bg-dark logged-in-layout">
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/side_menu' %>
+
+    <main class="container body-content">
+      <%= yield %>
+    </main>
+
+    <%= render 'layouts/flash' %>
+    <%= render 'layouts/search_modal' %>
+  </body>
+</html>

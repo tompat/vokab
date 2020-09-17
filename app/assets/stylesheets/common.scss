@@ -1,0 +1,140 @@
+body {
+  font-family: 'Roboto', sans-serif;
+
+  // For the footer
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  @media #{$large-and-up} {
+    padding: 0 !important;
+  }
+}
+
+input, button, textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+.error-alert {
+  background: #E53935;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+#toast-container {
+  @media #{$small-and-down} {
+    padding: 1rem;
+  }
+
+  .toast {
+    border: 3px solid white;
+    border-radius: 10px;
+  }
+}
+
+.card-content {
+  color: black;
+}
+
+.body-content {
+  @media #{$large-and-up} {
+    padding-left: 300px;
+  }
+}
+
+.bg-dark {
+  background: $dark-bg-color !important;
+  color: white !important;
+
+  h1 {
+    a {
+      color: white;
+    }
+  }
+}
+
+.sidenav {
+  padding-top: 2rem;
+  background: $light-bg-color;
+
+  .brand-logo {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+
+    &:hover {
+      background: none !important;
+    }
+  }
+}
+
+h1 {
+  margin: 0px;
+}
+
+nav {
+  @media #{$large-and-up} {
+    display: none;
+  }
+
+  background: $light-bg-color;
+  margin-bottom: 2rem;
+
+  * {
+    color: black !important;
+  }
+}
+
+.custom-badge {
+  border-radius: 1rem;
+  text-align: center;
+  color: white !important;
+  line-height: normal;
+  font-size: 1.1rem;
+  padding: 0.2rem 1rem;
+
+  .red {
+    background: red;
+  }
+
+  .green {
+    background: green;
+  }
+}
+
+#not_known_counter {
+  margin-right: 18px;
+  margin-top: 13px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  &.logged-in-layout {
+    main {
+      @media #{$large-and-up} {
+        padding: 3rem 0 3rem 300px !important;
+      }
+    }
+  }
+
+  &.public-layout, &.devise-layout {
+    main {
+      @media #{$large-and-up} {
+        padding: 3rem;
+      }
+    }
+  }
+}
+
+main {
+  flex: 1 0 auto; // For the footer
+}
+
+footer {
+  padding-top: 0px !important;
+}

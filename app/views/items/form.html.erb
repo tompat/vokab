@@ -1,0 +1,113 @@
+<div id="page-new-item">
+  <div class="row">
+    <%= form_with model: @item, local: true do |form| %>
+      <div class="col s12 textarea-top-container">
+        <div class="textarea-container">
+          <div class="input-field">
+            <%= form.text_area :text_1, class: 'materialize-textarea', tabindex: 1 %>
+            <label for="item_text_1">What you want to remember</label>
+          </div>
+        </div>
+      </div>
+
+      <% if current_user.is_me? %>
+        <div class="input-field col s12">
+          <button id="show-dictionnaries-btn" class='btn' type="button">
+            Use dictionnary
+            <i class="material-icons right">arrow_drop_down</i>
+          </button>
+
+          <div id='dictionnaries-btns' style="display: none">
+            <div>
+              <button type="button" class="btn"
+                data-name="wordreference"
+                data-url="https://www.wordreference.com">
+                  WordReference
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn"
+                data-name="linguee"
+                data-url="https://www.linguee.com">
+                  Linguee
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn"
+                data-name="deepl"
+                data-url="https://www.deepl.com/translator">
+                  Deepl
+              </button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="col s12 textarea-top-container">
+        <div class="textarea-container">
+          <div class="input-field">
+            <%= form.text_area :text_2, class: 'materialize-textarea', tabindex: 2 %>
+            <label for="item_text_2">What it means</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <button input type="submit" class="btn">
+          Save
+        </button>
+
+        <% if current_user.items.count > 0 %>
+          <a href="/" class="btn white black-text">
+            Cancel
+          </a>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $("#show-dictionnaries-btn").on('click', function(event) {
+      $("#dictionnaries-btns").show();
+
+      var hide_dictionnaries = function() {
+        $("#dictionnaries-btns").hide();
+        $(document).unbind('mouseup', hide_dictionnaries);
+      };
+
+      $(document).mouseup(hide_dictionnaries);
+    });
+
+    $("#dictionnaries-btns button").on('click', function() {
+      var text_2_has_focus = $("#item_text_2").data("has-focus");
+      var query = text_2_has_focus ? $("#item_text_2").val() : $("#item_text_1").val();
+      var url = $(this).data('url');
+
+      switch ($(this).data('name')) {
+        case 'wordreference':
+          url += '/' + (text_2_has_focus ? 'enfr' : 'fren');
+          url += '/' + query;
+          break;
+        case 'linguee':
+          url += '/' + (text_2_has_focus ? 'english-french' : 'french-english');
+          url += '/search?source=' + (text_2_has_focus ? 'english' : 'french') + '&query=' + query;
+          break;
+        case 'deepl':
+          url += '#' + (text_2_has_focus ? 'en/fr' : 'fr/en');
+          url += '/' + query
+          break;
+      }
+
+      window.open(url);
+    })
+
+    $('textarea').focus(function() {
+      $('textarea').removeData('has-focus');
+      $(this).data("has-focus", true);
+    });
+  })
+</script>

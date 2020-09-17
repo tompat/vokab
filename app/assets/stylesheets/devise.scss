@@ -1,0 +1,28 @@
+.devise-layout {
+  padding: 3rem 0;
+
+  .card {
+    border-radius: 20px;
+    margin-top: 3rem;
+
+    .card-title {
+      margin-bottom: 2rem;
+    }
+
+    .card-action {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+
+      a {
+        display: block;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  form {
+    input[type=submit] {
+      margin-top: 1rem;
+    }
+  }
+}

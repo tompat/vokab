@@ -1,0 +1,33 @@
+#homepage {
+  padding: 3rem 0;
+  font-family: 'Roboto', sans-serif;
+
+  h1 {
+    margin-bottom: 5rem;
+  }
+
+  h2 {
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+  }
+
+  .main-btns {
+    a {
+      margin: 0 1rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  @media #{$small-and-down} {
+    h2 {
+      font-size: 2rem;
+      margin: 0rem 0 3.5rem 0rem;
+    }
+
+    .main-btns {
+      a {
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+}

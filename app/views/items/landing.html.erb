@@ -1,0 +1,23 @@
+<div id="page-landing" class="center-align">
+  <%= link_to 'Start', next_items_path, class: 'btn btn-large' %>
+
+  <div class="row levels-container">
+    <div class="col s12 m6 offset-m3">
+      <ul class="collection ">
+        <% Item::LEVEL_COUNT.times.each do |level| %>
+          <li class="collection-item">
+            Level <%= level %>
+
+            <span class="custom-badge green" data-badge-caption="">
+              <%= @counts_waiting_answer_by_level[level] %> left today
+            </span>
+
+            <span class="custom-badge red" data-badge-caption="">
+              <%= @counts_by_level[level] %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

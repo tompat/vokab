@@ -1,0 +1,138 @@
+<div id="page-show-item">
+  <% unless params[:no_quiz].present? %>
+    <div class="row progress-bar">
+      <div class="col s12 steps-container">
+        <% 10.times do |index| %>
+          <%
+            bg_class = if current_user.progress_bar_data[index] == true
+              "light-green accent-3"
+            elsif current_user.progress_bar_data[index] == false
+              'red accent-2'
+            end
+          %>
+
+          <div class="step <%= bg_class %> center-align black-text">
+            <% if current_user.progress_bar_data.size == index %>
+              <%= @item.level %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <p class="flow-text text-content">
+            <%= @item.text_1 %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="text-2-row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <p id="text-2" class="flow-text text-content <% unless params[:no_quiz].present? %>white-text<% end %>">
+            <%= @item.text_2 %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <% unless params[:no_quiz].present? %>
+        <%= button_tag(type: 'button', class: "btn-large", id: 'show-text-2-btn') do %>
+          <i class="material-icons left">visibility</i>Show
+        <% end %>
+
+        <div id="set-status-buttons" class="left" style="display: none">
+          <%= link_to(answer_item_path(@item, is_answer_correct: true), method: :put, type: 'button', class: "btn-large green accent-4", data: {disable_with: '...'}) do %>
+            <i class="material-icons">thumb_up</i>
+          <% end %>
+
+          <%= link_to(answer_item_path(@item), is_answer_correct: false, method: :put, type: 'button', class: "btn-large red darken-1") do %>
+            <i class="material-icons">thumb_down</i>
+          <% end %>
+        </div>
+      <% end %>
+
+      <button type="button" id="show-actions-btn" class="right btn btn-large white black-text">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <div class="clearfix"></div>
+
+      <div id='action-btns' style="display: none">
+        <div>
+          <%= link_to(edit_item_path(@item), class: "btn-large white-text") do %>
+            <i class="material-icons left">mode_edit</i>
+            Edit
+          <% end %>
+        </div>
+        
+        <div>
+          <%= link_to("https://translate.google.com/?sl=en&tl=fr&op=translate&text=#{CGI.escape(@item.text_1)}", target: "_blank", class: "btn-large white-text") do %>
+            <i class="material-icons left">record_voice_over</i>
+            Pronunciation of top text
+          <% end %>
+        </div>
+        
+        <div>
+          <%= link_to("https://translate.google.com/?sl=en&tl=fr&op=translate&text=#{CGI.escape(@item.text_2)}", target: "_blank", class: "btn-large white-text") do %>
+            <i class="material-icons left">record_voice_over</i>
+            Pronunciation of bottom text
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to(reset_to_zero_item_path(@item), method: "PUT", class: "btn-large white-text") do %>
+            <i class="material-icons left">replay</i>
+            Reset to level 0
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to(shift_item_path(@item), method: "PUT", class: "btn-large white-text") do %>
+            <i class="material-icons left">forward</i>
+            Shift
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to(item_path(@item), method: "DELETE", class: "btn-large red white-text") do %>
+            <i class="material-icons left">delete</i>
+            Delete
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $("#show-text-2-btn").click(function() {
+      $("#text-2").removeClass('white-text');
+      $(this).hide();
+      $("#set-status-buttons").show();
+    })
+
+    $("#show-actions-btn").on('click', function(event) {
+      $("#action-btns").show();
+
+      var hide_actions = function() {
+        $("#action-btns").hide();
+        $(document).unbind('mouseup', hide_actions);
+      };
+
+      $(document).mouseup(hide_actions);
+    });
+  })
+</script>

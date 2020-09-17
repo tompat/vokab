@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
+
+  <body class="devise-layout bg-dark">
+    <main class="container">
+      <div class="row">
+        <div class="col s12 m6 offset-m3">
+          <h1 class="center">
+            <a href="/">
+              VOKAB
+            </a>
+          </h1>
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
+    <%= render 'layouts/footer' %>
+    <%= render 'layouts/flash' %>
+    <%= render 'layouts/search_modal' %>
+  </body>
+</html>

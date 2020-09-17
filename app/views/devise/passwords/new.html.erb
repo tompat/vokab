@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Forgot your password?</span>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="input-field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'validate' %>
+        <%= f.label :email %>
+      </div>
+
+      <div>
+        <%= f.submit "Send me reset password instructions", class: 'btn' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="card-action">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

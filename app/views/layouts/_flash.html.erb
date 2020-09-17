@@ -1,0 +1,20 @@
+<% if flash.any? %>
+  <%
+    if flash[:success] || flash[:notice]
+      classes = 'green accent-4'
+      message = flash[:success] || flash[:notice]
+    elsif flash[:error] || flash[:alert]
+      classes = 'red darken-1'
+      message = flash[:error] || flash[:alert]
+    end
+  %>
+
+  <script>
+    $(function() {
+      M.toast({
+        html: '<%== message %>',
+        classes: '<%= classes %>'
+      })
+    })
+  </script>
+<% end %>
