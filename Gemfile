@@ -27,10 +27,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem 'jsbundling-rails'
 gem "letter_opener"
 gem 'rails_db', '2.3.1'
 gem 'meta-tags'
-
 gem 'psych', '< 4'
 
 group :development, :test do
