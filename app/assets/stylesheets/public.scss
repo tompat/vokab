@@ -18,16 +18,16 @@
     }
   }
 
-  @media #{$small-and-down} {
-    h2 {
-      font-size: 2rem;
-      margin: 0rem 0 3.5rem 0rem;
-    }
-
-    .main-btns {
-      a {
-        margin-bottom: 2.5rem;
-      }
-    }
-  }
+  //@media #{$small-and-down} {
+  //  h2 {
+  //    font-size: 2rem;
+  //    margin: 0rem 0 3.5rem 0rem;
+  //  }
+  //
+  //  .main-btns {
+  //    a {
+  //      margin-bottom: 2.5rem;
+  //    }
+  //  }
+  //}
 }

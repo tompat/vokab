@@ -55,12 +55,12 @@
         border-right: solid 1px #aaa;
         font-weight: bold;
 
-        @media #{$small-and-down} {
-          width: 25px;
-          height: 25px;
-          line-height: 25px;
-          font-size: 14px;
-        }
+        //@media #{$small-and-down} {
+        //  width: 25px;
+        //  height: 25px;
+        //  line-height: 25px;
+        //  font-size: 14px;
+        //}
       }
     }
   }

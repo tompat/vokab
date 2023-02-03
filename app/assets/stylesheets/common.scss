@@ -6,9 +6,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
 
-  @media #{$large-and-up} {
-    padding: 0 !important;
-  }
+  //@media #{$large-and-up} {
+  //  padding: 0 !important;
+  //}
 }
 
 input, button, textarea {
@@ -24,9 +24,9 @@ input, button, textarea {
 }
 
 #toast-container {
-  @media #{$small-and-down} {
-    padding: 1rem;
-  }
+  //@media #{$small-and-down} {
+  //  padding: 1rem;
+  //}
 
   .toast {
     border: 3px solid white;
@@ -39,9 +39,9 @@ input, button, textarea {
 }
 
 .body-content {
-  @media #{$large-and-up} {
-    padding-left: 300px;
-  }
+  //@media #{$large-and-up} {
+  //  padding-left: 300px;
+  //}
 }
 
 .bg-dark {
@@ -75,9 +75,9 @@ h1 {
 }
 
 nav {
-  @media #{$large-and-up} {
-    display: none;
-  }
+  //@media #{$large-and-up} {
+  //  display: none;
+  //}
 
   background: $light-bg-color;
   margin-bottom: 2rem;
@@ -116,17 +116,17 @@ body {
 
   &.logged-in-layout {
     main {
-      @media #{$large-and-up} {
-        padding: 3rem 0 3rem 300px !important;
-      }
+      //@media #{$large-and-up} {
+      //  padding: 3rem 0 3rem 300px !important;
+      //}
     }
   }
 
   &.public-layout, &.devise-layout {
     main {
-      @media #{$large-and-up} {
-        padding: 3rem;
-      }
+      //@media #{$large-and-up} {
+      //  padding: 3rem;
+      //}
     }
   }
 }
