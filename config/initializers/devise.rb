@@ -309,8 +309,6 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
-
   Rails.application.config.to_prepare do
     Devise::SessionsController.layout "devise"
     Devise::ConfirmationsController.layout "devise"
