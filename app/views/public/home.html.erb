@@ -1,2 +1,10 @@
-<h1>Public#home</h1>
-<p>Find me in app/views/public/home.html.erb</p>
+<div id="homepage" class="text-center">
+  <h1>VOKAB</h1>
+
+  <h2>Never forget your vocabulary again</h2>
+
+  <div class="main-btns mt-5">
+    <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-light me-4' %>
+    <%= link_to "Sign in", new_user_session_path, class: 'btn btn-light' %>
+  </div>
+</div>

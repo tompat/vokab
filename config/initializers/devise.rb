@@ -310,4 +310,14 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.navigational_formats = ['*/*', :html, :turbo_stream]
+
+  Rails.application.config.to_prepare do
+    Devise::SessionsController.layout "devise"
+    Devise::ConfirmationsController.layout "devise"
+    Devise::UnlocksController.layout "devise"
+    Devise::PasswordsController.layout "devise"
+
+    # Handle case when user is updated its data
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
+  end
 end
