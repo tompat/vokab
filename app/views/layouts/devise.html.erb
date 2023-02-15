@@ -14,7 +14,7 @@
     <div class="container text-center text-black">
       <div class="row">
         <div class="col-sm-6 mx-auto">
-          <h1 class="mt-5 mb-4">
+          <h1 class="mt-4 mb-4">
             <a href="/" class="text-white text-decoration-none">
               VOKAB
             </a>
@@ -22,6 +22,18 @@
 
           <div class="card">
             <div class="card-body">
+              <% if notice.present? %>
+                <div class="alert alert-info text-start" role="alert">
+                  <%= notice %>
+                </div>
+              <% end  %>
+
+              <% if alert.present? %>
+                <div class="alert alert-danger text-start" role="alert">
+                  <%= alert %>
+                </div>
+              <% end %>
+
               <%= yield %>
             </div>
         </div>
