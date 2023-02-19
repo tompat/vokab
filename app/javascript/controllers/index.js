@@ -4,7 +4,7 @@
 
 import { application } from "./application"
 import TextareaAutogrow from 'stimulus-textarea-autogrow'
+import DictionariesController from "./dictionaries_controller"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+application.register("dictionaries", DictionariesController)
 application.register('textarea-autogrow', TextareaAutogrow)

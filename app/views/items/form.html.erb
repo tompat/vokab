@@ -6,6 +6,21 @@
       </div>
 
       <% if current_user.is_me? %>
+        <div class="dropdown" data-controller="dictionaries">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Translate with
+          </button>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" data-dictionaries-target="dictionary-link" data-action="dictionaries#goTo">WordReference</a>
+            </li>
+
+            <li><a class="dropdown-item" href="#">Linguee</a></li>
+            <li><a class="dropdown-item" href="#">Deepl</a></li>
+          </ul>
+        </div>
+
         <div class="input-field col s12">
           <button id="show-dictionnaries-btn" class='btn' type="button">
             Use dictionnary
@@ -65,44 +80,33 @@
 </div>
 
 <script>
-  // $(function() {
-  //   $("#show-dictionnaries-btn").on('click', function(event) {
-  //     $("#dictionnaries-btns").show();
-  //
-  //     var hide_dictionnaries = function() {
-  //       $("#dictionnaries-btns").hide();
-  //       $(document).unbind('mouseup', hide_dictionnaries);
-  //     };
-  //
-  //     $(document).mouseup(hide_dictionnaries);
-  //   });
-  //
-  //   $("#dictionnaries-btns button").on('click', function() {
-  //     var text_2_has_focus = $("#item_text_2").data("has-focus");
-  //     var query = text_2_has_focus ? $("#item_text_2").val() : $("#item_text_1").val();
-  //     var url = $(this).data('url');
-  //
-  //     switch ($(this).data('name')) {
-  //       case 'wordreference':
-  //         url += '/' + (text_2_has_focus ? 'enfr' : 'fren');
-  //         url += '/' + query;
-  //         break;
-  //       case 'linguee':
-  //         url += '/' + (text_2_has_focus ? 'english-french' : 'french-english');
-  //         url += '/search?source=' + (text_2_has_focus ? 'english' : 'french') + '&query=' + query;
-  //         break;
-  //       case 'deepl':
-  //         url += '#' + (text_2_has_focus ? 'en/fr' : 'fr/en');
-  //         url += '/' + query
-  //         break;
-  //     }
-  //
-  //     window.open(url);
-  //   })
-  //
-  //   $('textarea').focus(function() {
-  //     $('textarea').removeData('has-focus');
-  //     $(this).data("has-focus", true);
-  //   });
-  // })
+
+    $("#dictionnaries-btns button").on('click', function() {
+      var text_2_has_focus = $("#item_text_2").data("has-focus");
+      var query = text_2_has_focus ? $("#item_text_2").val() : $("#item_text_1").val();
+      var url = $(this).data('url');
+
+      switch ($(this).data('name')) {
+        case 'wordreference':
+          url += '/' + (text_2_has_focus ? 'enfr' : 'fren');
+          url += '/' + query;
+          break;
+        case 'linguee':
+          url += '/' + (text_2_has_focus ? 'english-french' : 'french-english');
+          url += '/search?source=' + (text_2_has_focus ? 'english' : 'french') + '&query=' + query;
+          break;
+        case 'deepl':
+          url += '#' + (text_2_has_focus ? 'en/fr' : 'fr/en');
+          url += '/' + query
+          break;
+      }
+
+      window.open(url);
+    })
+
+    $('textarea').focus(function() {
+      $('textarea').removeData('has-focus');
+      $(this).data("has-focus", true);
+    });
+  })
 </script>
