@@ -93,6 +93,7 @@ class Item < ApplicationRecord
 
   def create_reverse_item
     new_reverse_item = Item.create(text_1: self.text_2, text_2: self.text_1, user_id: self.user_id, next_answer_at: DateTime.now + 4.days, reverse_item: self)
+    debugger
     self.update(reverse_item: new_reverse_item)
   end
 
