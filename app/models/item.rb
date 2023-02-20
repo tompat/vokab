@@ -78,22 +78,19 @@ class Item < ApplicationRecord
   end
 
   def create_with_reverse
-    Item.transaction do
-      self.next_answer_at = DateTime.now + 1.day
-      self.save
+    self.next_answer_at = DateTime.now + 1.day
+    self.save
 
-      if self.text_2.present?
-        create_reverse_item
-        return self.valid? && self.reverse_item.valid?
-      else
-        return self.valid?
-      end
+    if self.text_2.present?
+      create_reverse_item
+      return self.valid? && self.reverse_item.valid?
+    else
+      return self.valid?
     end
   end
 
   def create_reverse_item
     new_reverse_item = Item.create(text_1: self.text_2, text_2: self.text_1, user_id: self.user_id, next_answer_at: DateTime.now + 4.days, reverse_item: self)
-    debugger
     self.update(reverse_item: new_reverse_item)
   end
 

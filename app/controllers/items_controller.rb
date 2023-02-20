@@ -17,10 +17,10 @@ class ItemsController < ApplicationController
     @item.user = current_user
 
     if @item.create_with_reverse
-      flash[:success] = "Item successfully created"
+      flash[:notice] = "Item successfully created"
       redirect_to root_path
     else
-      flash[:error] = helpers.model_errors_as_html(@item)
+      flash[:danger] = helpers.model_errors_as_html(@item)
       redirect_to new_item_path
     end
   end

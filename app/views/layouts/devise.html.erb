@@ -22,20 +22,11 @@
 
           <div class="card">
             <div class="card-body">
-              <% if notice.present? %>
-                <div class="alert alert-info text-start" role="alert">
-                  <%= notice %>
-                </div>
-              <% end  %>
-
-              <% if alert.present? %>
-                <div class="alert alert-danger text-start" role="alert">
-                  <%= alert %>
-                </div>
-              <% end %>
+              <%= render "layouts/flash_messages" %>
 
               <%= yield %>
             </div>
+          </div>
         </div>
       </div>
     </div>
