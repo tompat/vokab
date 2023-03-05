@@ -10,10 +10,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="bg-dark text-white">
+  <body class="bg-dark">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Vokab</a>
+        <a class="navbar-brand" href="/">Vokab</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
           <span class="navbar-toggler-icon"></span>
@@ -23,10 +23,6 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <%= link_to "Add", new_item_path, class: "nav-link" %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to "Search", new_item_path, class: "nav-link" %>
             </li>
 
             <li class="nav-item">
@@ -51,6 +47,14 @@
               </li>
             <% end %>
           </ul>
+
+          <%= form_with url: search_items_path, method: :get, class: "d-flex", local: true do |form| %>
+            <%= form.text_field :query, class: "form-control me-2", type: "search", placeholder: "Search" %>
+
+            <%= button_tag class: "btn btn-primary" do %>
+              <i class="bi-search"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </nav>

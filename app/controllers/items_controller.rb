@@ -95,11 +95,6 @@ class ItemsController < ApplicationController
     @item.last_answer_at = Date.today
 
     if @item.save
-      current_user.push_in_progress_bar(is_answer_correct)
-
-      level_evolution_type = is_answer_correct ? 'up' : 'down'
-      current_user.update_levels_evolution(@item.level, level_evolution_type)
-
       if is_answer_correct
         flash[:success] = "Well done!"
       else
@@ -109,11 +104,7 @@ class ItemsController < ApplicationController
       flash[:error] = "An error occured"
     end
 
-    if current_user.progress_bar_data.empty?
-      redirect_to landing_items_path
-    else
-      redirect_to next_items_path
-    end
+    redirect_to next_items_path
   end
 
   def landing

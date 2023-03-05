@@ -28,15 +28,15 @@
           <%= form.text_area :text_2, class: 'form-control', tabindex: 2, data: { controller: "textarea-autogrow", "dictionaries-target": "textareaTop" }, placeholder: "Translation" %>
         </div>
 
-        <div class="d-grid mb-3">
+        <div class="d-grid">
           <%= form.submit "Save", class: "btn btn-primary" %>
         </div>
 
-        <div class="d-grid mb-3">
-          <% if current_user.items.count == 0 %>
+        <% if current_user.items.count > 0 %>
+          <div class="d-grid mt-3">
             <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

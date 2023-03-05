@@ -1,23 +1,23 @@
 <div id="page-landing" class="center-align">
-  <%= link_to 'Start', next_items_path, class: 'btn btn-large' %>
+  <div class="d-grid">
+    <%= link_to "Start", next_items_path, class: "btn btn-lg btn-primary mb-3" %>
+  </div>
 
-  <div class="row levels-container">
+  <div class="row">
     <div class="col s12 m6 offset-m3">
-      <ul class="collection ">
-        <% Item::LEVEL_COUNT.times.each do |level| %>
-          <li class="collection-item">
-            Level <%= level %>
+      <% Item::LEVEL_COUNT.times.each do |level| %>
+        <div class="text-bg-light text-start mb-3 p-2 rounded">
+          Level <%= level %>
 
-            <span class="custom-badge green" data-badge-caption="">
-              <%= @counts_waiting_answer_by_level[level] %> left today
-            </span>
+          <span class="badge text-bg-success">
+            <%= @counts_waiting_answer_by_level[level] %> left today
+          </span>
 
-            <span class="custom-badge red" data-badge-caption="">
-              <%= @counts_by_level[level] %>
-            </span>
-          </li>
-        <% end %>
-      </ul>
+          <span class="badge text-bg-danger text-end float-end">
+            <%= @counts_by_level[level] %>
+          </span>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
